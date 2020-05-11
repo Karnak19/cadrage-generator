@@ -3,20 +3,23 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Home from './views/Home.page';
+import Layout from './layout';
 
 function Router() {
   const { isAuth } = useSelector((state) => state);
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <AuthRoute
-          exact
-          isAuth={isAuth}
-          path="/should-be-auth"
-          component={Home}
-        />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <AuthRoute
+            exact
+            isAuth={isAuth}
+            path="/should-be-auth"
+            component={Home}
+          />
+        </Switch>
+      </Layout>
     </BrowserRouter>
   );
 }
