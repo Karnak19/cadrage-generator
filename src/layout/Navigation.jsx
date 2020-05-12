@@ -16,7 +16,7 @@ function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [routes] = useState([
     { id: 1, label: 'Home', requireAuth: false, link: '/' },
-    { id: 2, label: 'Sports', requireAuth: true, link: '/sports' },
+    { id: 2, label: 'Generate', requireAuth: true, link: '/generate' },
   ]);
   const { isAuth } = useSelector((state) => state);
   const dispatch = useDispatch();

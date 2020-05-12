@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Home from './views/Home.page';
 import Layout from './layout';
+import Generate from './views/Generate.page';
 
 function Router() {
   const { isAuth } = useSelector((state) => state);
@@ -12,12 +13,7 @@ function Router() {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <AuthRoute
-            exact
-            isAuth={isAuth}
-            path="/should-be-auth"
-            component={Home}
-          />
+          <AuthRoute isAuth={isAuth} path="/generate" component={Generate} />
         </Switch>
       </Layout>
     </BrowserRouter>
@@ -34,7 +30,7 @@ function AuthRoute({ isAuth, component: Component, ...rest }) {
 
 AuthRoute.propTypes = {
   isAuth: PropTypes.bool.isRequired,
-  component: PropTypes.node.isRequired,
+  component: PropTypes.func.isRequired,
 };
 
 export default Router;
