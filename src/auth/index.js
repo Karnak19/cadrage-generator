@@ -5,7 +5,7 @@ import { LOGIN, LOGOUT } from './actionTypes';
 
 const initialState = {
   token: null,
-  isAuth: false,
+  isAuth: true,
 };
 
 export function reducer(state = initialState, action) {
