@@ -1,50 +1,31 @@
-import React, { useState } from 'react';
-import { Row, Col } from 'reactstrap';
-import { PDFViewer } from '@react-pdf/renderer';
-import DocumentRenderer from '../components/generate/DocumentRenderer';
+import React, { lazy, Suspense } from 'react';
+import { Row, Col, Spinner } from 'reactstrap';
+
 import Form from '../components/generate/Form';
-
 import useForm from '../hooks/useForm';
-import useDebounceEffect from '../hooks/useDebouceEffect';
 
-const initialState = {
-  projectName: '',
-  clientName: '',
-  month: '',
-  year: '',
-  campus: '',
-  objective: '',
-  deploy: false,
-};
+const DocumentRenderer = lazy(() =>
+  import('../components/generate/DocumentRenderer')
+);
 
 function Generate() {
-  const { values, handleChange } = useForm(initialState);
-  const [debounced, setDebounced] = useState(initialState);
-
-  useDebounceEffect(
-    () => {
-      setDebounced(values);
-    },
-    [values],
-    1000
-  );
+  const { values, handleChange, handleSubmit } = useForm();
 
   return (
     <Row>
       <Col sm="12" md="6">
         <Row>
-          <Form values={values} handleChange={handleChange} />
+          <Form
+            values={values}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+          />
         </Row>
       </Col>
       <Col sm="12" md="6">
-        <PDFViewer
-          style={{
-            width: '100%',
-            height: '80vh',
-          }}
-        >
-          <DocumentRenderer values={debounced} />
-        </PDFViewer>
+        <Suspense fallback={<Spinner />}>
+          <DocumentRenderer />
+        </Suspense>
       </Col>
     </Row>
   );
