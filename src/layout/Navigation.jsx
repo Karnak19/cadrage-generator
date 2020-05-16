@@ -18,7 +18,7 @@ function Navigation() {
     { id: 1, label: 'Home', requireAuth: false, link: '/' },
     { id: 2, label: 'Generate', requireAuth: true, link: '/generate' },
   ]);
-  const { isAuth } = useSelector((state) => state);
+  const isAuth = useSelector((state) => state.isAuth);
   const dispatch = useDispatch();
   const toggle = () => setIsOpen(!isOpen);
 

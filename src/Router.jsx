@@ -2,12 +2,13 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+
 import Home from './views/Home.page';
-import Layout from './layout';
 import Generate from './views/Generate.page';
+import Layout from './layout';
 
 function Router() {
-  const { isAuth } = useSelector((state) => state);
+  const isAuth = useSelector((state) => state.isAuth);
   return (
     <BrowserRouter>
       <Layout>
