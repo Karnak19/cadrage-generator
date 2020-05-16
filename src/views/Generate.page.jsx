@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Row, Col } from 'reactstrap';
 import { PDFViewer } from '@react-pdf/renderer';
-import DocumentRenderer from '../generate/DocumentRenderer';
-import Form from '../generate/Form';
+import DocumentRenderer from '../components/generate/DocumentRenderer';
+import Form from '../components/generate/Form';
 
 import useForm from '../hooks/useForm';
 import useDebounceEffect from '../hooks/useDebouceEffect';
@@ -13,6 +13,7 @@ const initialState = {
   month: '',
   year: '',
   campus: '',
+  objective: '',
   deploy: false,
 };
 

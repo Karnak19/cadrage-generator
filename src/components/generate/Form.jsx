@@ -1,6 +1,14 @@
 import React from 'react';
 import { string, func, shape } from 'prop-types';
-import { Form as RForm, Button, Row, Col } from 'reactstrap';
+import {
+  Form as RForm,
+  Button,
+  Row,
+  Col,
+  FormGroup,
+  Input,
+  Label,
+} from 'reactstrap';
 import FormText from './FormText';
 import FormSelect from './FormSelect';
 import FormCheckbox from './FormCheckbox';
@@ -84,6 +92,18 @@ function Form({ values, handleChange }) {
         ]}
         placeholder="Campus"
       />
+
+      <FormGroup>
+        <Label for="objective">Objective</Label>
+        <Input
+          id="objective"
+          name="objective"
+          type="textarea"
+          value={values.objective}
+          onChange={handleChange}
+          placeholder="Objectives"
+        />
+      </FormGroup>
       <FormCheckbox
         handleChange={handleChange}
         name="deploy"

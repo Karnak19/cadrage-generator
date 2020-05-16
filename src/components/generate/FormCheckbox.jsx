@@ -8,7 +8,7 @@ function FormCheckbox({ handleChange, values, name }) {
       <legend>Déploiement</legend>
       {values.map((value) => {
         return (
-          <FormGroup check key={value.name}>
+          <FormGroup check key={value.value}>
             <Label check>
               {/* eslint-disable-next-line react/jsx-boolean-value */}
               <Input type="radio" value={value.value} name={name} />{' '}
