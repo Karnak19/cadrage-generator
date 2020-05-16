@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { Provider } from 'react-redux';
 
 import Router from './Router';
-import store from './auth';
+import store from './store';
 
 import 'bootswatch/dist/darkly/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';

@@ -10,7 +10,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import NavItem from './NavItem';
-import { logOut } from '../auth/actions';
+import { logOut } from '../store/auth/actions';
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ function Navigation() {
     { id: 1, label: 'Home', requireAuth: false, link: '/' },
     { id: 2, label: 'Generate', requireAuth: true, link: '/generate' },
   ]);
-  const isAuth = useSelector((state) => state.isAuth);
+  const isAuth = useSelector((state) => state.auth.isAuth);
   const dispatch = useDispatch();
   const toggle = () => setIsOpen(!isOpen);
 

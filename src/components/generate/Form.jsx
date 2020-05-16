@@ -13,9 +13,9 @@ import FormText from './FormText';
 import FormSelect from './FormSelect';
 import FormCheckbox from './FormCheckbox';
 
-function Form({ values, handleChange }) {
+function Form({ values, handleChange, handleSubmit }) {
   return (
-    <RForm>
+    <RForm onSubmit={handleSubmit}>
       <Row form>
         <Col xs={6}>
           <FormText
@@ -132,4 +132,9 @@ Form.propTypes = {
     projectName: string,
   }).isRequired,
   handleChange: func.isRequired,
+  handleSubmit: func,
+};
+
+Form.defaultProps = {
+  handleSubmit: () => {},
 };
