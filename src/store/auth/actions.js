@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { LOGIN, LOGOUT } from './actionTypes';
+import { LOGIN, LOGOUT } from '../actionTypes';
 
 export const storeToken = (token) => (dispatch) => {
   dispatch({ type: LOGIN, payload: token });
