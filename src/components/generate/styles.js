@@ -1,14 +1,14 @@
 import { StyleSheet, Font } from '@react-pdf/renderer';
 
-import Roboto from '../../assets/Roboto.ttf';
+import Carme from '../../assets/Carme-Regular.ttf';
 
 Font.register({
-  family: 'Roboto',
-  src: Roboto,
+  family: 'Carme',
+  src: Carme,
 });
 
 export default StyleSheet.create({
-  page: { fontFamily: 'Roboto' },
+  page: { fontFamily: 'Carme' },
   section: { color: 'white', textAlign: 'center', margin: 30 },
   view: { textAlign: 'center', display: 'flex', flexDirection: 'column' },
   image: {},

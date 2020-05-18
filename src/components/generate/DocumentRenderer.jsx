@@ -4,9 +4,11 @@ import { useSelector } from 'react-redux';
 
 import FirstPage from './First.page';
 import SecondPage from './Second.page';
+import ThirdPage from './Third.page';
 
 function DocumentRenderer() {
   const values = useSelector((state) => state.form);
+
   return (
     <PDFViewer
       style={{
@@ -17,6 +19,7 @@ function DocumentRenderer() {
       <Document title={`${values.campus}-${values.projectName}`}>
         <FirstPage values={values} />
         <SecondPage values={values} />
+        <ThirdPage values={values} />
       </Document>
     </PDFViewer>
   );

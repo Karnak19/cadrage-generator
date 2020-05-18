@@ -1,4 +1,5 @@
 import React from 'react';
+import { shape, string } from 'prop-types';
 import { Page, Image, Text, View } from '@react-pdf/renderer';
 
 import styles from './styles';
@@ -23,3 +24,12 @@ function FirstPage({ values }) {
 }
 
 export default FirstPage;
+
+FirstPage.propTypes = {
+  values: shape({
+    projectName: string,
+    clientName: string,
+    year: string,
+    campus: string,
+  }).isRequired,
+};

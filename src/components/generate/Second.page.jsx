@@ -1,4 +1,5 @@
 import React from 'react';
+import { shape, string } from 'prop-types';
 import { Page, Text, View, Link } from '@react-pdf/renderer';
 
 import styles from './styles';
@@ -83,3 +84,10 @@ function SecondPage({ values }) {
 }
 
 export default SecondPage;
+
+SecondPage.propTypes = {
+  values: shape({
+    clientName: string,
+    objective: string,
+  }).isRequired,
+};

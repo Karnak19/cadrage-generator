@@ -1,5 +1,4 @@
 import React from 'react';
-import { string, func, shape } from 'prop-types';
 import {
   Form as RForm,
   Button,
@@ -8,12 +7,15 @@ import {
   FormGroup,
   Input,
   Label,
+  CustomInput,
 } from 'reactstrap';
 import FormText from './FormText';
 import FormSelect from './FormSelect';
 import FormCheckbox from './FormCheckbox';
+import useForm from '../../hooks/useForm';
 
-function Form({ values, handleChange, handleSubmit }) {
+function Form() {
+  const { values, handleChange, handleSubmit } = useForm();
   return (
     <RForm onSubmit={handleSubmit}>
       <Row form>
@@ -112,6 +114,45 @@ function Form({ values, handleChange, handleSubmit }) {
           { label: "Le client s'en charge", value: false },
         ]}
       />
+      <FormGroup>
+        <Label for="duration">Durée : {values.duration} semaines</Label>
+        <CustomInput
+          type="range"
+          id="duration"
+          name="duration"
+          value={values.duration}
+          onChange={handleChange}
+          max={16}
+        />
+      </FormGroup>
+      <Row form>
+        <Col xs={6}>
+          <FormGroup>
+            <Label for="startingDate">Starting Date</Label>
+            <Input
+              type="date"
+              name="startingDate"
+              id="startingDate"
+              placeholder="Starting Date"
+              value={values.startingDate}
+              onChange={handleChange}
+            />
+          </FormGroup>
+        </Col>
+        <Col xs={6}>
+          <FormGroup>
+            <Label for="endingDate">Ending Date</Label>
+            <Input
+              type="date"
+              name="endingDate"
+              id="endingDate"
+              placeholder="Ending Date"
+              value={values.endingDate}
+              onChange={handleChange}
+            />
+          </FormGroup>
+        </Col>
+      </Row>
 
       <Button
         disabled={!values.clientEmail}
@@ -125,16 +166,3 @@ function Form({ values, handleChange, handleSubmit }) {
 }
 
 export default Form;
-
-Form.propTypes = {
-  values: shape({
-    clientName: string,
-    projectName: string,
-  }).isRequired,
-  handleChange: func.isRequired,
-  handleSubmit: func,
-};
-
-Form.defaultProps = {
-  handleSubmit: () => {},
-};

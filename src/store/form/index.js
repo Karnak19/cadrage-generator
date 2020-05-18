@@ -8,23 +8,20 @@ const initialState = {
   campus: '',
   objective: '',
   deploy: false,
+  duration: '8',
+  startingDate: '',
+  endingDate: '',
+  browsers: [],
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    // case LOGIN:
-    //   return {
-    //     ...state,
-    //     token: action.payload,
-    //     isAuth: true,
-    //   };
-    // case LOGOUT:
-    //   return initialState;
     case CHANGE:
       return {
         ...state,
         ...action.payload,
       };
+
     default:
       return state;
   }
